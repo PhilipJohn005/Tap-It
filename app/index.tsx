@@ -5,6 +5,9 @@ import Animated, {
   useSharedValue,
   useAnimatedStyle,
 } from 'react-native-reanimated';
+import { BannerAd, BannerAdSize, TestIds, useForeground } from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
 
 const { width: screenWidth } = Dimensions.get('window');
 const ROPE_LENGTH = screenWidth * 0.6;
@@ -80,10 +83,19 @@ export default function Index() {
     p1Height.value = 0;
     p2Height.value = 0;
   };
-
+  
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
+      <View style={{width: screenWidth, alignItems: 'center',paddingTop:20}}>
+          <BannerAd
+            unitId={TestIds.ADAPTIVE_BANNER}
+            size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+            requestOptions={{
+              requestNonPersonalizedAdsOnly: true,
+            }}
+          />
+        </View>
       <View style={styles.header}>
         <View style={styles.scoreContainer}>
           <Text style={[styles.playerName, { color: '#3B82F6' }]}>Player 1</Text>
@@ -161,7 +173,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingTop: 60
+    paddingTop: 10
+  },
+  bannerAdContainer:{
+    backgroundColor:'#28e172ff'
   },
   scoreContainer: { alignItems: 'center' },
   resetButton: {
