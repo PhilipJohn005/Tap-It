@@ -16,7 +16,9 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.philip_john.TapIt"
+      
     },
     "web": {
       "bundler": "metro",
@@ -28,10 +30,17 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/frame-tap.png",
+          "image": "./assets/images/ios-light.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
+        }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-3226104979586723~5654343782",
+          "iosAppId": "ca-app-pub-3226104979586723~6923694432"
         }
       ]
     ],
