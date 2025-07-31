@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Dimensions,Platform } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState,useRef } from 'react';
 import Animated, {
@@ -7,7 +7,9 @@ import Animated, {
 } from 'react-native-reanimated';
 import { BannerAd, BannerAdSize, TestIds, useForeground } from 'react-native-google-mobile-ads';
 
-const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
+
+const adUnitId =Platform.OS === 'ios'? 'ca-app-pub-3226104979586723/2176433083': 'ca-app-pub-3226104979586723/5799767722';
+
 
 const { width: screenWidth } = Dimensions.get('window');
 const ROPE_LENGTH = screenWidth * 0.6;
@@ -89,7 +91,7 @@ export default function Index() {
       <StatusBar style="dark" />
       <View style={{width: screenWidth, alignItems: 'center',paddingTop:20}}>
           <BannerAd
-            unitId={TestIds.ADAPTIVE_BANNER}
+            unitId={adUnitId}
             size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
             requestOptions={{
               requestNonPersonalizedAdsOnly: true,
