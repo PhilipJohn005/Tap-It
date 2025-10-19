@@ -8,11 +8,11 @@ const adUnitId = TestIds.BANNER; // replace with real id in production
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 //const adUnitId =Platform.OS === 'ios'? 'ca-app-pub-3226104979586723/2176433083': 'ca-app-pub-3226104979586723/5799767722';
-// rope length depends on screen width
+
 const ROPE_LENGTH = screenWidth * 0.6;
 const WIN_THRESHOLD = screenWidth * 0.3;
 
-// scale utility (responsive text + buttons)
+//scale utility (responsive text + buttons)
 const scale = screenWidth / 400;
 
 export default function Index() {
